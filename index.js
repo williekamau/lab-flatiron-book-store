@@ -44,4 +44,32 @@ const bookStore = {
 }
 
 // Write your code here!
+//update the title
+const bookStoreTitle = document.getElementById("header");
+bookStoreTitle.textContent = bookStore.name;
+
+//Create elements for each book
+const bookList = document.getElementById("book-list");
+
+bookStore.books.forEach((book) => {
+    // Create the book container
+    const bookContainer = document.createElement("li");
+
+    // Change the textContent of each element to match book object
+    const bookTitle = document.createElement("h3");
+    bookTitle.textContent = book.title;
+     const bookAuthor = document.createElement("p");
+    bookAuthor.textContent = book.author;
+    const bookImage = document.createElement("img");
+    bookImage.src = book.imageUrl;
+    bookImage.alt = book.title;
+
+    // Append book elements to bookList
+    bookContainer.appendChild(bookTitle);
+    bookContainer.appendChild(bookAuthor);
+    bookContainer.appendChild(bookImage);
+
+    // Append book container to the booklist
+    bookList.appendChild(bookContainer);
+});
 
